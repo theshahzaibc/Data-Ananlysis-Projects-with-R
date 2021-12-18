@@ -1,5 +1,8 @@
 # Data-Ananlysis-Projects-with-R
 Data Ananlysis Projects with R
+# [1. Water Quality Analysis](https://github.com/theshahzaibc/Data-Ananlysis-Projects-with-R/blob/main/README.md#1-water-quality-analysis)
+# [2. Squid Game Sentiment Analysis](https://github.com/theshahzaibc/Data-Ananlysis-Projects-with-R/blob/main/README.md#2-squid-game-sentiment-analysis)
+
 
 # 1. Water Quality Analysis
 
