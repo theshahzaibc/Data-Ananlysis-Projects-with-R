@@ -387,3 +387,39 @@ merged_df <- merge(movies_df, rating_df, by = "ID")
 head(merged_df)
   ```
   ![image](https://i.imgur.com/PKyMbKA.jpg)
+ 
+ ## Getting most rated movies by the users
+ 
+ ``` 
+fdf = table(merged_df$Ratings)
+df_prob <- fdf / sum(fdf)
+perc_df <- df_prob * 100
+perc_df2 <- round(perc_df, 2) 
+names(perc_df2) <- names(perc_df)
+final_df <- data.frame(perc = perc_df2)
+Rating <- final_df$perc.Var1
+ggplot(final_df, aes(x=1, y=final_df$perc.Freq, fill=Rating)) +
+  labs(title = "Most rated movies pie chart") +
+  geom_bar(stat="identity", width=1, color="white") +
+  coord_polar("y", start=0) + 
+  geom_text(aes(label = paste0(final_df$perc.Freq, '%')), position = position_stack(vjust = 0.5)) +
+  theme_void()
+ ```
+![image](https://github.com/theshahzaibc/Data-Ananlysis-Projects-with-R/blob/main/m4.png?raw=true)
+
+## Top 10 Movies having rating 10
+ ```
+df10 <- merged_df[merged_df$Ratings == 10, ]
+title_df = data.frame(table(df10$Title))
+title_df = title_df[order(title_df$Freq, decreasing = TRUE),][1:10, ]
+head(title_df)
+ggplot(title_df, aes(x=title_df$Var1, y=title_df$Freq)) + 
+  geom_bar(stat="identity", width=.5, fill="tomato3") + 
+  labs(title="Top 10 Movies having rating 10", x="Title", y="Count") + 
+  theme(axis.text.x = element_text(angle=65, vjust=0.6))
+ ```
+ ![image](https://github.com/theshahzaibc/Data-Ananlysis-Projects-with-R/blob/main/m7.jpg?raw=true)
+ 
+ 
+  ![image](https://github.com/theshahzaibc/Data-Ananlysis-Projects-with-R/blob/main/m5.png?raw=true)
+ 
