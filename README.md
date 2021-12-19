@@ -367,6 +367,8 @@ ggplot(dfs, aes(x = nature, y = scores, fill = nature)) +
 library(tidyr)
 library(tidyverse)
 library(dplyr)
+library(ggplot2)
+
   ```
 ## Loading datasets
   
