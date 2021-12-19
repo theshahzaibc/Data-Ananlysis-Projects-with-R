@@ -357,3 +357,33 @@ ggplot(dfs, aes(x = nature, y = scores, fill = nature)) +
   
   ```
   ![image](https://i.imgur.com/RXLqDbg.png)
+  
+  # 4. Movie Rating Analysis for Beginners
+  Download the dataset from here: https://www.kaggle.com/tunguz/movietweetings/download
+  
+  ## Loading libraries
+  ```
+library(tidyr)
+library(tidyverse)
+library(dplyr)
+  ```
+## Loading datasets
+  
+```
+movies_df <- read.table('movies.dat', sep = ":",colClasses = c(NA, "NULL"),header = FALSE, fill = TRUE)
+names(movies_df) = c('ID', 'Title', 'Genre')
+head(movies_df)
+```
+ ![image](https://i.imgur.com/PDtwTte.jpg)
+ 
+```
+rating_df <- read.table('ratings.dat', sep = ":",colClasses = c(NA, "NULL"),header = FALSE, fill = TRUE)
+names(rating_df) = c('User', 'ID', 'Ratings', 'Timestamp')
+head(rating_df)
+  ```
+   ![image](https://i.imgur.com/thoIT9D.jpg)
+  ```
+merged_df <- merge(movies_df, rating_df, by = "ID")
+head(merged_df)
+  ```
+  ![image](https://i.imgur.com/PKyMbKA.jpg)
